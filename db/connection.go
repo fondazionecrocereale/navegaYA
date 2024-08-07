@@ -10,10 +10,10 @@ import (
 )
 
 const (
-	host     = "private-db-postgresql-nyc3-68472-do-user-17449050-0.m.db.ondigitalocean.com"
+	host     = "my-db-cluster-do-user-17449050-0.i.db.ondigitalocean.com"
 	port     = 25060
 	user     = "doadmin"
-	password = "AVNS_0RVpY_d_VjNV9QF5sTe"
+	password = "AVNS_H9tD5yIYs9uct631SZJ"
 	dbName   = "defaultdb"
 )
 

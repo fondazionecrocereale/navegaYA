@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: myusername/myapp:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_HOST
+          value: "my-db-cluster-do-user-17449050-0.i.db.ondigitalocean.com"
+        - name: DB_USER
+          value: "doadmin"
+        - name: DB_PASSWORD
+          value: "AVNS_H9tD5yIYs9uct631SZJ"
+        - name: DB_NAME
+          value: "defaultdb"
