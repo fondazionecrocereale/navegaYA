@@ -1,0 +1,88 @@
+go mod init github.com/rodrigoberes/rest-api
+
+https://github.com/gorilla/mux
+
+https://github.com/cosmtrek/air
+
+
+
+
+Comandos GORM
+
+
+https://gorm.io/
+
+go get -u gorm.io/gorm
+
+go get -u gorm.io/driver/postgres  
+
+
+Docker
+
+Comandos 
+
+docker run --name gorm -e POSTGRES_USER=rodrigoberes24 -e POSTGRES_PASSWORD=polyglota24 -p 5432:5432 -d postgres
+
+
+Docker ps
+
+Conectar al contenedor DOCKER y acceder al bash
+
+Docker exec -it gorm bash
+
+ERROR PORT 
+
+sudo lsof -i :5432
+sudo kill -9 <pid>
+2234803100
+
+
+Postgres
+
+psql -U rodrigoberes24 --password
+
+
+Create database 
+
+CREATE DATABASE gorm;
+
+
+\l veo mis base de datos
+
+
+//Conectarse
+
+\c gorm
+
+
+
+SWAGGER
+
+Download and Install Swagger
+
+go get -u github.com/swaggo/swag/cmd/swag
+go install github.com/swaggo/swag/cmd/swag@latest
+
+Add Library
+
+go get -u github.com/swaggo/files
+go get -u github.com/swaggo/gin-swagger
+
+export PATH=$(go env GOPATH)/bin:$PATH
+
+Swag init
+
+
+
+package model
+
+import "gorm.io/gorm"
+
+type User struct {
+    gorm.Model
+
+    FirstName string `gorm:"not null" json:"first_name"`
+    LastName  string `gorm:"not null" json:"last_name"`
+    Email     string `gorm:"not null;uniqueIndex" json:"email"`
+    Tasks     []Task `json:"tasks"`
+}
