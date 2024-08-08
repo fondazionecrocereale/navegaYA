@@ -15,7 +15,11 @@ import (
 
 // @title 	Tag Service API
 func NewRouter(tagsController *controller.TagsController, clipsController *controller.ClipsController) *gin.Engine {
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
+	router.Use(gin.Logger())
+	router.Use(gin.Recovery())
+	
 	// add swagger
 	fmt.Print(docs.SwaggerInfo.BasePath)
 	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
